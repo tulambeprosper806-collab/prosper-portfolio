@@ -1,5 +1,7 @@
 const body = document.body;
 const toggleButton = document.querySelector('.theme-toggle');
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-list');
 
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'light') {
@@ -13,6 +15,30 @@ if (toggleButton) {
         localStorage.setItem('theme', isLight ? 'light' : 'dark');
         toggleButton.textContent = isLight ? '🌙' : '☀️';
         toggleButton.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+    });
+}
+
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('is-open');
+        navToggle.classList.toggle('is-open', isOpen);
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('is-open');
+            navToggle.classList.remove('is-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) {
+            navMenu.classList.remove('is-open');
+            navToggle.classList.remove('is-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        }
     });
 }
 

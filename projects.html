@@ -14,15 +14,23 @@
                 <span>Prosper Tulambe</span>
             </a>
 
-            <ul class="nav-list">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html" class="active">Projects</a></li>
-                
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+            <div class="nav-panel">
+                <ul class="nav-list" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
 
-            <button class="theme-toggle" type="button" aria-label="Switch to light mode">☀️</button>
+            <div class="nav-actions">
+                <button class="theme-toggle" type="button" aria-label="Switch to light mode">☀️</button>
+                <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </nav>
     </header>
 
